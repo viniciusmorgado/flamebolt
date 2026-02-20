@@ -1,7 +1,7 @@
 use yew::prelude::*;
 
 #[component]
-pub fn App() -> Html {
+fn App() -> Html {
     let counter = use_state(|| 0);
     let onclick = {
         let counter = counter.clone();

@@ -1,0 +1,9 @@
+[workspace]
+resolver = "3"
+members = ["features/slice_1","flamebolt", "shared"]
+
+[workspace.dependencies]
+axum = { version = "0.8.8", features = ["http2", "macros", "ws"] }
+serde = { version = "1.0.228", features = ["derive"] }
+foyer = "0.22.3"
+yew = { version = "0.22.0", features = ["csr"] }

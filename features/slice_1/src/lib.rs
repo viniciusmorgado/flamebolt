@@ -2,7 +2,7 @@
 
 mod entities;
 
-use axum::{routing::get, Json, Router};
+use axum::{Json, Router, routing::get};
 use entities::something::Slice1Something;
 
 #[axum::debug_handler]

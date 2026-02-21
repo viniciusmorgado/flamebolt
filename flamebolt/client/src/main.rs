@@ -6,6 +6,12 @@ use components::{
     Dashboard, PageNotFound, Pool, Projects, SideBar, Server, Workload,
 };
 
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum Theme {
+    Dark,
+    Light,
+}
+
 #[derive(Routable, PartialEq, Eq, Clone, Debug)]
 pub enum Route {
     #[at("/")]
@@ -33,13 +39,31 @@ fn switch(routes: Route) -> Html {
         Route::NotFound => html! { <PageNotFound /> },
     }
 }
-
+ 
 #[function_component]
 fn App() -> Html {
+    let theme = use_state_eq(|| Theme::Dark);
+    let on_toggle_theme = {
+        let theme = theme.clone();
+        Callback::from(move |_| {
+            theme.set(match *theme {
+                Theme::Dark => Theme::Light,
+                Theme::Light => Theme::Dark,
+            })
+        })
+    };
+    let layout_class = classes!(
+        "app-layout",
+        if *theme == Theme::Light {
+            "theme-light"
+        } else {
+            "theme-dark"
+        }
+    );
     html! {
         <BrowserRouter>
-            <div class="app-layout">
-                <SideBar />
+            <div class={layout_class}>
+                <SideBar theme={*theme} on_toggle_theme={on_toggle_theme} />
                 <main>
                     <Switch<Route> render={switch} />
                 </main>

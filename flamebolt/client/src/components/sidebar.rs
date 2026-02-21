@@ -1,13 +1,16 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use crate::Route;
+use crate::{Route, Theme};
 
-#[derive(Properties, PartialEq, Default)]
-pub struct SideBarProps {}
+#[derive(Properties, PartialEq)]
+pub struct SideBarProps {
+    pub theme: Theme,
+    pub on_toggle_theme: Callback<()>,
+}
 
 #[component]
-pub fn SideBar(_props: &SideBarProps) -> Html {
+pub fn SideBar(props: &SideBarProps) -> Html {
     let route = use_route::<Route>();
     let collapsed = use_state_eq(|| false);
 
@@ -80,10 +83,27 @@ pub fn SideBar(_props: &SideBarProps) -> Html {
                     </Link<Route>>
                 </li>
             </ul>
-            <button type="button" class="sidebar-user">
-                <span class="sidebar-user-avatar" aria-hidden="true"></span>
-                <span class="sidebar-user-name">{"User"}</span>
-            </button>
+            <div class="sidebar-footer">
+                <button type="button" class="sidebar-user">
+                    <span class="sidebar-user-avatar" aria-hidden="true"></span>
+                    <span class="sidebar-user-name">{"User"}</span>
+                </button>
+                <button type="button" class="theme-toggle-btn" onclick={props.on_toggle_theme.reform(|_| ())} title={if props.theme == Theme::Dark { "Tema claro" } else { "Tema escuro" }}>
+                    {if props.theme == Theme::Dark {
+                        html! {
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor" aria-hidden="true">
+                                <path d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 100-96 58 57-61 140ZM114-304l97-101 56 52-100 96-53-47Zm644 492 61-140-96-100 59-57 140 61ZM480-480Z"/>
+                            </svg>
+                        }
+                    } else {
+                        html! {
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor" aria-hidden="true">
+                                <path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T418-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/>
+                            </svg>
+                        }
+                    }}
+                </button>
+            </div>
         </nav>
     }
 }

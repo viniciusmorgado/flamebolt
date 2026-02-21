@@ -1,8 +1,8 @@
 use yew::prelude::*;
 
 #[function_component]
-pub fn Create() -> Html {
+pub fn Pool() -> Html {
     html! {
-        <p>{"Create."}</p>
+        <p>{"Pool."}</p>
     }
 }

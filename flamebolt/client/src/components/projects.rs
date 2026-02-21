@@ -1,8 +1,8 @@
 use yew::prelude::*;
 
 #[function_component]
-pub fn TodoLists() -> Html {
+pub fn Projects() -> Html {
     html! {
-        <p>{"Todo-Lists."}</p>
+        <p>{"Projects."}</p>
     }
 }

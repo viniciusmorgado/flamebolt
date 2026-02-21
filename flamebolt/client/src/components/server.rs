@@ -1,8 +1,8 @@
 use yew::prelude::*;
 
 #[function_component]
-pub fn Home() -> Html {
+pub fn Server() -> Html {
     html! {
-        <p>{"Conteúdo principal."}</p>
+        <p>{"Server."}</p>
     }
 }

@@ -1,8 +1,8 @@
 use yew::prelude::*;
 
 #[function_component]
-pub fn Profile() -> Html {
+pub fn Workload() -> Html {
     html! {
-        <p>{"Profile."}</p>
+        <p>{"Workload."}</p>
     }
 }

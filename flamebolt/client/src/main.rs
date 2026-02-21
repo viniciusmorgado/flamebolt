@@ -3,23 +3,21 @@ use yew_router::prelude::*;
 
 mod components;
 use components::{
-    Calendar, Create, Dashboard, Home, PageNotFound, Profile, SideBar, TodoLists,
+    Dashboard, PageNotFound, Pool, Projects, SideBar, Server, Workload,
 };
 
 #[derive(Routable, PartialEq, Eq, Clone, Debug)]
 pub enum Route {
     #[at("/")]
-    Home,
-    #[at("/dashboard")]
     Dashboard,
-    #[at("/create")]
-    Create,
-    #[at("/todo-lists")]
-    TodoLists,
-    #[at("/calendar")]
-    Calendar,
-    #[at("/profile")]
-    Profile,
+    #[at("/pool")]
+    Pool,
+    #[at("/server")]
+    Server,
+    #[at("/projects")]
+    Projects,
+    #[at("/workload")]
+    Workload,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -27,12 +25,11 @@ pub enum Route {
 
 fn switch(routes: Route) -> Html {
     match routes {
-        Route::Home => html! { <Home /> },
         Route::Dashboard => html! { <Dashboard /> },
-        Route::Create => html! { <Create /> },
-        Route::TodoLists => html! { <TodoLists /> },
-        Route::Calendar => html! { <Calendar /> },
-        Route::Profile => html! { <Profile /> },
+        Route::Pool => html! { <Pool /> },
+        Route::Server => html! { <Server /> },
+        Route::Projects => html! { <Projects /> },
+        Route::Workload => html! { <Workload /> },
         Route::NotFound => html! { <PageNotFound /> },
     }
 }

@@ -2,9 +2,7 @@ use yew::prelude::*;
 use yew_router::prelude::*;
 
 mod components;
-use components::{
-    Dashboard, PageNotFound, Pool, Projects, SideBar, Server, Workload,
-};
+use components::{Dashboard, PageNotFound, Pool, Projects, Server, SideBar, Workload};
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Theme {
@@ -39,7 +37,7 @@ fn switch(routes: Route) -> Html {
         Route::NotFound => html! { <PageNotFound /> },
     }
 }
- 
+
 #[function_component]
 fn App() -> Html {
     let theme = use_state_eq(|| Theme::Dark);

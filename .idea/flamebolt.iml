@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/flamebolt/client/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/flamebolt/server/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/shared/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/features/authorization/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

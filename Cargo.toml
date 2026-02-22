@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = [ "features/slice_1"
+members = [ "features/authorization"
           , "features/slice_2"
           , "features/slice_3"
           , "flamebolt/server"
@@ -11,4 +11,5 @@ members = [ "features/slice_1"
 axum = { version = "0.8.8", features = ["http2", "macros", "ws"] }
 serde = { version = "1.0.228", features = ["derive"] }
 yew = { version = "0.22.0", features = ["csr"] }
+tokio = { version = "1.49.0", features = ["full"] }
 foyer = "0.22.3"

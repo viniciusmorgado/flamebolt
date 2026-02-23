@@ -1,15 +1,7 @@
 # flamebolt
-Flamebolt
 
+Flamebolt is a self-hosted serverless platform built on top of the Amazon Firecracker microVM engine. It enables deployment and execution of web applications in lightweight microVMs, providing an experience similar to AWS ECS and AWS Lambda — but running on your own Linux server infrastructure using Firecracker.
 
-Limitações
+Known Limitations
 
-- Scale-to-Zero é suportado apenas em containers e functions stateless.
-- 
-
-Interface
-
-- vamos ter uma HAL layer, onde as queries ao surrealdb são deterministicas mas o que dizer ao usuário baseado nelas vai ser gerado por IA.
-- provavelmente vamos ter que trazer uma coleção inteira de dados a cada pergunta, para evitar a geração de queriesa pela IA que podem falhar
-- de forma imprevisivel.
-HAL 9000
+- Scale-to-Zero is only supported in stateless containers and functions.
